@@ -26,14 +26,14 @@ html {
 .menu button {
     background-color:#fff;
     border: 10px;
-    width: 100px;
-    height: 50px;
+    width: 110px;
+    height: 40px;
 }
 
 .menu button:hover {
     background-color:#fff;
     border: 10px;
-    width: 100px;
+    width: 110px;
     height: 38px;
     border-bottom: 2px solid #444;
 }
