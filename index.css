@@ -219,14 +219,33 @@ body{
     display: block;
 }
 
+.container ul li h3{
+    font-size: 30px;
+    text-align: center;
+}
+
 .container ul li p{
     display: inline;
     padding-left: 2;
     
 }
-.container ul li h3{
-    font-size: 30px;
-    text-align: center;
+
+.container ul li a{
+    text-decoration: none;
+    color: #000;;
+    display: inline;
+    padding: 3px 8px 3px 9px;
+    border-radius: 15px;
+    font-weight: bold;
+    border: 2px solid #333;
+}
+
+.container ul li a:hover{
+    text-decoration: none;
+    background-color: #333e;
+    color: #ccc;
+    padding-left: 2;
+    font-weight: bold;
 }
 
 footer {
