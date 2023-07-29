@@ -518,4 +518,7 @@ footer {
  .server-info p,.server-info.server-ip{
     display:flex;
  }
+ .container ul{
+    padding-left:30px;
+ }
 }
