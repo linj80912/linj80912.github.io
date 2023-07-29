@@ -19,11 +19,23 @@ body{
     justify-content: space-between;
 }
 .logo{
+    line-height: 70px;
+    padding: 0 20px;
+}
+.logo a{
+    text-decoration: none;
     color:#fff;
     font-size: 36px;
-    line-height: 80px;
-    padding: 0 60px;
     font-weight: bold;
+    padding: 0 5px;
+}
+.logo a:hover{
+    text-decoration: none;
+    color:#fff;
+    font-size: 38px;
+    padding-left: 2px;
+    font-weight: bold;
+    border-radius: 10px;
 }
 
 .checkbtn{
@@ -34,6 +46,10 @@ body{
     margin-right: 30px;
     cursor: pointer;
     display: none;
+}
+.checkbtn i:hover{
+    border-radius: 5px;
+    background-color: #33333313;
 }
 
 #check{
@@ -64,7 +80,7 @@ body{
     position: absolute;
     width: 0;
     height: 3px;
-    background: #5a5a5a;
+    background: #fff;
     bottom: 0;
     left: 50%;
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
@@ -203,14 +219,33 @@ body{
     display: block;
 }
 
+.container ul li h3{
+    font-size: 30px;
+    text-align: center;
+}
+
 .container ul li p{
     display: inline;
     padding-left: 2;
     
 }
-.container ul li h3{
-    font-size: 30px;
-    text-align: center;
+
+.container ul li a{
+    text-decoration: none;
+    color: #000;;
+    display: inline;
+    padding: 3px 8px 3px 9px;
+    border-radius: 15px;
+    font-weight: bold;
+    border: 2px solid #333;
+}
+
+.container ul li a:hover{
+    text-decoration: none;
+    background-color: #333e;
+    color: #ccc;
+    padding-left: 2;
+    font-weight: bold;
 }
 
 footer {
