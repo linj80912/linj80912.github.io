@@ -329,6 +329,8 @@ footer {
     animation-duration: 0.5s;
     animation-fill-mode: both;
     animation-name: btnEntrance;
+    background-color: #333;
+    color: #fff;
 }
 
 @keyframes btnEntrance {
@@ -348,19 +350,6 @@ footer {
     animation-fill-mode: both;
     animation-name: btnExit;
 }
-
-/* zoomOut */
-/* @keyframes btnExit {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-      transform: scale3d(0.3, 0.3, 0.3);
-    }
-  } */
-
-/* fadeOutDown */
 @keyframes btnExit {
     from {
         opacity: 1;
@@ -396,13 +385,7 @@ footer {
         transform: translateY(80px);
     }
 }
-@media(max-width: 1024px), (orientation: landscape) {
-    #back-to-top-btn:hover,
-    #back-to-top-btn:focus {
-    color: #333;
-    background-color: #fff;
-}
-}
+
 @media(max-width: 992px) {
     #back-to-top-btn {
         font-size: 28px;
