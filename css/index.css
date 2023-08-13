@@ -12,7 +12,7 @@ body {
 .navbar {
     background-color: #333333be;
     width: 100%;
-    height: 75px;
+    height: 70px;
     position: fixed;
     right: 0;
     top: 0;
@@ -22,7 +22,7 @@ body {
 }
 
 .logo {
-    line-height: 70px;
+    line-height: 75px;
     padding: 0 20px;
 }
 
@@ -472,7 +472,7 @@ footer {
 
 }
 
-@media(max-width:768px) {
+@media(min-width: 701px), (orientation: landscape) {
     #back-to-top-btn {
         font-size: 30px;
         border: 4px solid #333;
@@ -480,26 +480,6 @@ footer {
         height: 60px;
         bottom: 8vh;
         right: 7vw;
-    }
-
-    .navbar{
-        height: 90px;
-    }
-
-    .logo {
-        line-height: 90px;
-        padding: 0 20px;
-    }
-
-    .logo a {
-        font-size: 50px;
-        padding: 0 0px;
-    }
-
-    .checkbtn {
-        display: block;
-        font-size: 50px;
-        margin-top: 10px;
     }
 
     .navbar ul {
@@ -571,8 +551,24 @@ footer {
         right: 10vw;
     }
 
+    .navbar{
+        height: 90px;
+    }
+
+    .logo {
+        line-height: 90px;
+        padding: 0 20px;
+    }
+
+    .logo a {
+        font-size: 50px;
+        padding: 0 0px;
+    }
+
     .checkbtn {
         display: block;
+        font-size: 50px;
+        margin-top: 10px;
     }
 
     .navbar ul {
