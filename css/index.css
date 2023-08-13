@@ -222,6 +222,7 @@ body {
 .container ul li {
     text-align: center;
     display: block;
+    font-size: 15px;
 }
 
 .container ul li h3 {
