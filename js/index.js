@@ -1,4 +1,9 @@
-window.onload = function() {
+document.addEventListener('DOMContentLoaded', () => {
+  showLoader();
+
+  const startTime = new Date().getTime();
+
+  window.onload = function() {
     var images = document.querySelectorAll('#slideshow .slide');
     var dotsContainer = document.getElementById('dots-container');
     var dots = [];
@@ -33,7 +38,17 @@ window.onload = function() {
 
     setSlide(0);
     timer = setInterval(slideShow, 5000); // Keep a reference to the interval so it can be cleared
-};
+    const currentTime = new Date().getTime();
+    const timeElapsed = currentTime - startTime;
+
+    if (timeElapsed < 2000) {
+      setTimeout(hideLoader, 2000 - timeElapsed);
+    } else {
+      hideLoader();
+    }
+    
+  };
+});
 
 
 var serverip=document.querySelector(".server-ip")
@@ -110,7 +125,19 @@ const backToTopButton = document.querySelector("#back-to-top-btn");
       return c/2*(t*t*t + 2) + b;
   };
   
-
-
+  // 顯示載入圖示
+  function showLoader() {
+    document.getElementById('loader').style.display = 'block';
+    document.querySelector('footer').style.display = 'none';
+    document.getElementById('content-wrapper').style.opacity = '0';
+  }
+  
+  // 隱藏載入圖示
+  function hideLoader() {
+    document.getElementById('loader').style.display = 'none';
+    document.getElementById('content-wrapper').style.opacity = '1';
+    document.querySelector('footer').style.display = 'block';
+  }
+  
 
 
