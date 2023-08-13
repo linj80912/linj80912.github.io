@@ -472,7 +472,7 @@ footer {
 
 }
 
-@media(min-width: 701px), (orientation: landscape) {
+@media(max-width:768px),(orientation: landscape){
     #back-to-top-btn {
         font-size: 30px;
         border: 4px solid #333;
