@@ -395,7 +395,14 @@ footer {
         bottom: 7vh;
         right: 6vw;
     }
-
+    #back-to-top-btn:hover{
+    background-color: #fff;
+    color: #333;
+    }
+    #back-to-top-btn:focus{
+    background-color: #333;
+    color: #fff;
+    }
     .checkbtn {
         display: block;
     }
