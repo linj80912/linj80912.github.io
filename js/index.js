@@ -127,7 +127,7 @@ const backToTopButton = document.querySelector("#back-to-top-btn");
   
   // 顯示載入圖示
   function showLoader() {
-    document.getElementById('loader').style.display = 'block';
+    document.getElementById('loader').style.display = 'flex';
     document.querySelector('footer').style.display = 'none';
     document.getElementById('content-wrapper').style.opacity = '0';
   }
