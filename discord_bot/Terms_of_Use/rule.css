@@ -1,137 +1,239 @@
-/* 全局樣式 */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-header {
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
-}
-
-nav ul {
-    list-style: none;
+* {
     padding: 0;
-    text-align: center;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-    position: relative;
+body {
+    min-width: 620px;
 }
 
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    position: relative;
-    padding: 5px 0;
-}
-
-nav ul li a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    display: block;
-    margin-top: 5px;
-    right: 0;
-    background: #fff;
-    transition: width 0.4s ease;
-}
-
-nav ul li a:hover::after {
+.container {
     width: 100%;
-    left: 0;
-    background: #fff;
+    padding: 5px 0 5px 100px;
+    text-align: left;
+    line-height: 3;
+    justify-items: left;
+
+}
+.container p{
+    width: 620px;
+    text-align: left;
 }
 
-main {
-    flex: 1;
-    padding: 2rem;
+.container ul {
+    display: block;
+    padding: 0 40px 0 30px;
+    background-color: #fff;
+    border-radius: 20px;
+    width: 615px;
 }
 
-.hero {
-    background: #f4f4f4;
-    color: #333;
-    padding: 2rem;
-    text-align: center;
+.container ul li {
+    text-align: left;
+    list-style: lower-alpha;
+    font-size: 15px;
 }
 
-.button {
-    display: inline-block;
-    padding: 10px 20px;
-    background: #333;
-    color: #fff;
+.container ul li h3 {
+    font-size: 30px;
+    text-align: left;
+}
+
+.container ul li p {
+    display: inline;
+    padding-left: 2;
+
+}
+
+.container ul li a {
     text-decoration: none;
-    margin-top: 10px;
+    color: #000;
+    ;
+    display: inline;
+    padding: 3px 8px 3px 9px;
+    border-radius: 15px;
+    font-weight: bold;
+    border: 2px solid #333;
 }
 
-.content {
-    padding: 2rem;
-    text-align: center;
-}
-
-.service-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.service {
-    background: #f4f4f4;
-    padding: 1rem;
-    margin: 1rem;
-    flex: 1 1 300px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+.container ul li a:hover {
+    text-decoration: none;
+    background-color: #333e;
+    color: #ccc;
+    padding-left: 2;
+    font-weight: bold;
 }
 
 footer {
-    background: #333;
+    bottom: 0;
+    background-color: #333;
     color: #fff;
+    padding: 20px;
+    font-size: 14px;
     text-align: center;
-    padding: 1rem 0;
+    /*==============================================================================*/
+    display: grid;
 }
 
-/* 響應式設計 */
-@media (max-width: 768px) {
-    nav ul li {
-        display: block;
-        margin: 10px 0;
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.social-icons img {
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+.author,
+.copyright,
+.contact {
+    margin-bottom: 5px;
+}
+
+.contact a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
+
+/*======================*/
+#back-to-top-btn {
+    display: none;
+    position: fixed;
+    bottom: 6vh;
+    right: 5vw;
+    font-size: 26px;
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    outline: none;
+    border: 3px solid #333;
+    border-radius: 50%;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+    transition-property: background-color, color;
+}
+
+#back-to-top-btn:hover,
+#back-to-top-btn:focus {
+    background-color: #333;
+    color: #fff;
+}
+
+.btnEntrance {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-name: btnEntrance;
+    background-color: #333;
+    color: #fff;
+}
+
+@keyframes btnEntrance {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
     }
 
-    .service-container {
-        flex-direction: column;
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
     }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
-    /* 平板橫向樣式 */
-    nav ul {
-        display: flex;
-        justify-content: space-around;
+.btnExit {
+    animation-duration: 0.25s;
+    animation-fill-mode: both;
+    animation-name: btnExit;
+}
+
+@keyframes btnExit {
+    from {
+        opacity: 1;
     }
 
-    .service-container {
-        justify-content: space-between;
+    to {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+}
+
+/*======================*/
+@keyframes showcopy {
+    0% {
+        opacity: 0;
+        transform: translateY(80px);
     }
 
-    .service {
-        flex: 1 1 calc(33.333% - 2rem);
-        margin: 1rem;
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes unshowcopy {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
     }
 
-    .hero {
-        padding: 3rem;
+    100% {
+        opacity: 0;
+        transform: translateY(80px);
+    }
+}
+
+@media(max-width: 992px) {
+    #back-to-top-btn {
+        font-size: 28px;
+        border: 3.5px solid #333;
+        width: 50px;
+        height: 50px;
+        bottom: 7vh;
+        right: 6vw;
     }
 
-    .content {
-        padding: 3rem;
+    #back-to-top-btn:hover {
+        background-color: #fff;
+        color: #333;
+    }
+
+    #back-to-top-btn:focus {
+        background-color: #333;
+        color: #fff;
+    }
+}
+
+@media(max-width:768px) {
+    #back-to-top-btn {
+        font-size: 30px;
+        border: 4px solid #333;
+        width: 60px;
+        height: 60px;
+        bottom: 8vh;
+        right: 7vw;
+    }
+}
+
+@media(max-width:500px) {
+    #back-to-top-btn {
+        font-size: 40px;
+        border: 5px solid #333;
+        width: 70px;
+        height: 70px;
+        bottom: 9vh;
+        right: 10vw;
     }
 }
