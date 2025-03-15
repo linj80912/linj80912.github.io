@@ -1,155 +1,314 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>巨米跑酷伺服器</title>
-    <link rel="shortcut icon"
-        href="https://cdn.discordapp.com/avatars/624759157139963926/b9013c4afda5bfdf88043cc9f1cd8a8d?size=1024"
-        type="image/x-icon">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/loading.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.12/clipboard.min.js"></script>
-    <script src="https://kit.fontawesome.com/a87506b11e.js" crossorigin="anonymous"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4921693095116168"
-        crossorigin="anonymous"></script>
-    <script async src="https://fundingchoicesmessages.google.com/i/pub-4921693095116168?ers=1"
-        nonce="RGAoID_6xqy9zfm3VbjW5w"></script>
-    <script
-        nonce="RGAoID_6xqy9zfm3VbjW5w">(function () { function signalGooglefcPresent() { if (!window.frames['googlefcPresent']) { if (document.body) { const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe); } else { setTimeout(signalGooglefcPresent, 0); } } } signalGooglefcPresent(); })();</script>
-    <meta name="google-site-verification" content="1DPQ_haJSxWX-LiirFjVo91O_s8Ci8pBv2Tp7OrPQew" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>巨米跑酷伺服器</title>
+  <link rel="shortcut icon" href="https://cdn.discordapp.com/avatars/624759157139963926/b9013c4afda5bfdf88043cc9f1cd8a8d?size=1024" type="image/x-icon">
+  <!-- 載入原首頁 CSS 與 info 頁面的 CSS -->
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/loading.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.12/clipboard.min.js"></script>
+  <script src="https://kit.fontawesome.com/a87506b11e.js" crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4921693095116168" crossorigin="anonymous"></script>
+  <script async src="https://fundingchoicesmessages.google.com/i/pub-4921693095116168?ers=1" nonce="RGAoID_6xqy9zfm3VbjW5w"></script>
+  <script nonce="RGAoID_6xqy9zfm3VbjW5w">
+    (function () {
+      function signalGooglefcPresent() {
+        if (!window.frames['googlefcPresent']) {
+          if (document.body) {
+            const iframe = document.createElement('iframe');
+            iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;';
+            iframe.style.display = 'none';
+            iframe.name = 'googlefcPresent';
+            document.body.appendChild(iframe);
+          } else {
+            setTimeout(signalGooglefcPresent, 0);
+          }
+        }
+      }
+      signalGooglefcPresent();
+    })();
+  </script>
+  <meta name="google-site-verification" content="1DPQ_haJSxWX-LiirFjVo91O_s8Ci8pBv2Tp7OrPQew" />
+  <style>
+    /* 可自行調整內部 section 的顯示與隱藏 */
+    section { display: none; }
+    section.active { display: block; }
+  </style>
 </head>
-
 <body onload="showLoader()">
-    <div class="wrapper" id="loader" style="display: none">
-        <div class="spinner">
-            <div class="circle"></div>
-        </div>
+  <!-- 載入動畫 -->
+  <div class="wrapper" id="loader" style="display: none">
+    <div class="spinner">
+      <div class="circle"></div>
     </div>
-    <div id="sideNav" class="navbar">
-        <input type="checkbox" id="check">
-        <label for="check" class="checkbtn">
-            <i class="fas fa-bars"></i>
-        </label>
-        <label class="logo"><a href="https://linj80912.github.io">巨米跑酷伺服器</a></label>
+  </div>
+
+  <!-- 導覽列 -->
+  <div id="sideNav" class="navbar">
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="fas fa-bars"></i>
+    </label>
+    <label class="logo"><a href="#home">巨米跑酷伺服器</a></label>
+    <ul>
+      <li><a href="#home" >首頁</a></li>
+      <li><a href="#info">各區域介紹</a></li>
+      <li><a href="#spec">伺服器規範</a></li>
+    </ul>
+  </div>
+
+  <!-- 內容區域 -->
+  <div id="content-wrapper">
+    <button id="back-to-top-btn"><i class="fas fa-angle-double-up"></i></button>
+
+    <!-- 首頁區塊 -->
+    <section id="home" class="active">
+      <div id="slideshow">
+        <img src="image1.jpg" class="slide active">
+        <img src="image2.jpg" class="slide">
+        <img src="image3.png" class="slide">
+        <img src="image4.png" class="slide">
+        <img src="image5.png" class="slide">
+        <div id="server-info" data-clipboard-text="mc.linj80912.com">
+          <div class="server-info">
+            <p>伺服器ip:</p>
+            <span class="server-ip" data-clipboard-text="mc.linj80912.com">mc.linj80912.com</span>
+          </div>
+          <span class="clip-board">點擊複製！</span>
+        </div>
+        <div id="dots-container"></div>
+      </div>
+      <div class="container">
+        <div>
+          <ul>
+            <li>
+              <h3>伺服器版本</h3>
+            </li>
+            <li>
+              <p>伺服器支援 Minecraft JAVA 1.17-1.20.X 及 基岩板 進入</p>
+            </li>
+            <li>
+              <p>有任何其他連線問題請至Discord伺服器尋求管理員進行協助</p>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <h3>關於</h3>
+            </li>
+            <li>本伺服器主要提供段位跑酷挑戰，適合求突破自我的玩家進行挑戰。</li>
+            <li>具有專業且熱心的管理與建築團隊，確保遊戲體驗的品質。</li>
+            <li>歡迎所有Minecraft玩家加入我們的伺服器，開始自己的跑酷旅程。</li>
+            <li>
+              <p>本跑酷伺服器的 Discord 社群：</p>
+              <a href="https://discord.gg/SzPjcVCrcx">點此前往</a>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <h3>介紹影片</h3>
+            </li>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/utsT_ujvpOA" title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 各區域介紹區塊 -->
+    <section id="info">
+      <div class="container">
+        <div>
+          <ul>
+            <li>
+              <h3><br><br>網頁尚未完成<br>敬請期待<br><br><br></h3>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 伺服器規範區塊 -->
+  <section id="spec">
+    <div class="container">
+      <div>
+        <h1>Minecraft 跑酷伺服器規範</h1>
+        <h2>目錄</h2>
         <ul>
-            <li><a href="https://linj80912.github.io">首頁</a></li>
-            <li><a href="info.html">各區域介紹</a></li>
-            <li><a href="spec.html">伺服器規範</a></li>
-            <!--<li><a href="">贊助伺服器</a herf="donate.html"></li>-->
+          <li><a href="#rules-general">1. 伺服器總則</a></li>
+          <li><a href="#rules-behavior">2. 玩家行為規範</a></li>
+          <li><a href="#rules-technical">3. 技術規範</a></li>
+          <li><a href="#rules-builder">4. 建築師規範</a></li>
+          <li><a href="#rules-penalty">5. 違規處罰</a></li>
+          <li><a href="#rules-appeal">6. 申訴機制</a></li>
+          <li><a href="#rules-final">7. 附則</a></li>
         </ul>
-    </div>
-    <div id="content-wrapper">
-        <button id="back-to-top-btn"><i class="fas fa-angle-double-up"></i></button>
-        <div id="slideshow">
-            <img src="image1.jpg" class="slide active">
-            <img src="image2.jpg" class="slide">
-            <img src="image3.png" class="slide">
-            <img src="image4.png" class="slide">
-            <img src="image5.png" class="slide">
-            <div id="server-info" data-clipboard-text="mc.linj80912.com">
-                <div class="server-info">
-                    <p>伺服器ip:</p>
-                    <span class="server-ip" data-clipboard-text="mc.linj80912.com">mc.linj80912.com</span>
-                </div>
-                <span class="clip-board">點擊複製！</span>
-            </div>
-            <div id="dots-container"></div>
-        </div>
-        <div class="container">
-            <div>
-                <!--<ul>
-                <li>
-                    <h3>最新消息</h3>   
-                </li>
-                <li>
-                    <p>2022/4/28</p>
-                    <p>伺服器支援 Minecraft 1.17-1.19.X 版本進入</p>
-                </li>
-                <li>
-                    <p>2022/4/28</p>
-                    伺服器生存區僅支援 1.19.X 版本進入
-                </li>
-                <li>
-                    <p>2022/4/28</p>
-                    具有專業且熱心的管理與建築團隊，確保遊戲體驗的品質。   
-                </li>
-                <li>
-                    歡迎所有Minecraft玩家加入我們的伺服器，開始自己的跑酷旅程。   
-                </li>
-            </ul>-->
-                <ul>
-                    <li>
-                        <h3>伺服器版本</h3>
-                    </li>
-                    <li>
-                        <p>伺服器支援 Minecraft JAVA 1.19-1.21.4 進入</p>
-                    </li>
-                    <li>
-                        <p>有任何其他連線問題請至Discord伺服器尋求管理員進行協助</p>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <h3>關於</h3>
-                    </li>
-                    <li>
-                        本伺服器主要提供段位跑酷挑戰，適合求突破自我的玩家進行挑戰。
-                    </li>
-                    <li>
-                        具有專業且熱心的管理與建築團隊，確保遊戲體驗的品質。
-                    </li>
-                    <li>
-                        歡迎所有Minecraft玩家加入我們的伺服器，開始自己的跑酷旅程。
-                    </li>
-                    <li>
-                        <p>本跑酷伺服器的 Discord 社群：</p>
-                        <a href="https://discord.gg/SzPjcVCrcx">點此前往</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <h3>介紹影片</h3>
-                    </li>
 
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/utsT_ujvpOA"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
-                </ul>
-            </div>
-        </div>
-        <footer>
-            <div class="footer-container">
-                <p class="author">作者：巨米</p>
-                <div class="social-icons">
-                    <a href="https://www.youtube.com/@Gimmy-" target="_blank">
-                        <i class="icon-youtube">
-                            <img src="https://www.svgrepo.com/show/13671/youtube.svg" alt="youtube" width="30px"
-                                height="30px">
-                        </i>
-                    </a>
-                    <a href="https://discordapp.com/users/624759157139963926" target="_blank">
-                        <i class="icon-discord">
-                            <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a69f118df70ad7828d4_icon_clyde_blurple_RGB.svg"
-                                alt="discord" width="30px" height="30px">
-                        </i>
-                    </a>
-                    <a href="https://www.instagram.com/junming4820/" target="_blank">
-                        <i class="icon-instagram">
-                            <img src="https://static.cdninstagram.com/rsrc.php/v3/yt/r/30PrGfR3xhB.png" alt="instagram"
-                                width="30px" height="30px">
-                        </i>
-                    </a>
-                </div>
-                <p class="copyright">Copyright &copy; 2023-2025 版權所有，並保留所有權利。</p>
-                <p class="contact">聯繫方式：<a href="mailto:linj80912@gmail.com">linj80912@gmail.com</a></p>
-            </div>
-        </footer>
+        <!-- 伺服器總則 -->
+        <h3 id="rules-general">1. 伺服器總則</h3>
+        <p>1.1 本伺服器專為 Minecraft 跑酷玩家打造，提供公平競技與良好的遊戲體驗。</p>
+        <p>1.2 進入伺服器即代表你已閱讀並同意遵守本規範，違規可能會受到處罰。</p>
+        <p>1.3 管理團隊保留最終解釋權，並有權視情況調整規範。</p>
+
+        <!-- 玩家行為規範 -->
+        <h3 id="rules-behavior">2. 玩家行為規範</h3>
+        <p>2.1 禁止騷擾、歧視、謾罵、惡意攻擊或霸凌其他玩家。</p>
+        <p>2.2 禁止洗版、無意義訊息、重複發送內容或過度使用特殊符號影響其他玩家。</p>
+        <p>2.3 嚴禁推廣其他伺服器、Discord 群組、YouTube 頻道或與本伺服器無關的內容。</p>
+        <p>2.4 禁止利用遊戲漏洞（Bug）或特殊機制來獲取不正當優勢，若發現問題請回報管理員。</p>
+        <p>2.5 禁止下載或還原伺服器地圖，或使用任何工具來複製關卡內容。</p>
+
+        <!-- 技術規範 -->
+        <h3 id="rules-technical">3. 技術規範</h3>
+        <p>3.1 玩家可以使用不影響公平性的 Mod，例如 OptiFine、LabyMod 或 Minimap。<br>
+        <p>3.2 禁止使用任何影響遊戲公平性的模組或插件，包括但不限於飛行、加速、自動跳躍、連點、<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;連續衝刺或修改物理引擎來影響跑酷機制的模組或插件。
+        <p>3.3 禁止對伺服器發起 DDoS 攻擊、惡意發送大量封包或執行過量請求導致伺服器效能下降。</p>
+        <p>3.4 禁止利用遊戲漏洞或 Bug 影響伺服器穩定性，若發現問題應立即回報管理員。</p>
+
+        <!-- 建築師規範 -->
+        <div id="rules-builder">
+        <h3>4. 建築師規範</h3>
+        <p>4.1 建築師不得擅自更改伺服器內的建築，包括已上線的地圖、伺服器大廳或其他玩家的作品，所有變動須經過管理團隊批准。</p>
+        <p>4.2 禁止使用指令刪除已上線的地圖，所有地圖移除須經過管理團隊批准。</p>
+        <p>4.3 禁止使用指令執行可能導致伺服器崩潰或重啟的指令。</p>
+        <p>4.4 禁止濫用 WorldEdit 或其他工具，若有大範圍修改需求須先與管理團隊確認。</p>
+        <p>4.5 禁止利用權限進行惡意行為，例如強制傳送玩家、生成大量實體或影響遊戲體驗的操作。</p>
+        <p>4.6 地圖正式上線後，若發現 Bug 或難度不平衡，建築師應主動修正。</p>
+        <ul><li>
+          <p>4.7 詳細建築師規範請查看</p>
+          <a href="#build">點此前往</a>
+        </li></ul></div>
+
+
+        <!-- 違規處罰 -->
+        <h3 id="rules-penalty">5. 違規處罰</h3>
+        <p>5.1 洗版、騷擾、發送垃圾訊息或不當言論，將視情況禁言或暫時封鎖帳號。</p>
+        <p>5.2 濫用介伏盒 Bug 或利用方塊特性干擾其他玩家，將視情況進行懲處。</p>
+        <p>5.3 任何形式的作弊（如外掛），首次封鎖 30 天，二次則永久封鎖。</p>
+        <p>5.4 建築師違反規範，將視情況進行警告、撤銷建築權限或永久封鎖帳號。</p>
+
+        <!-- 申訴機制 -->
+        <h3 id="rules-appeal">6. 申訴機制</h3>
+        <p>6.1 若認為處罰不公，可透過 Discord 論壇提交申訴，並附上相關證據，如影片或聊天紀錄。</p>
+        <p>6.2 管理團隊將依據證據進行審核，並擁有最終決定權，必要時可調整處罰結果。</p>
+
+        <!-- 最後說明 -->
+        <h3 id="rules-final">7. 附則</h3>
+        <p>7.1 本規範可能會依伺服器狀況調整，所有變更將提前公告。</p>
+        <p>7.2 若遇到未明確規範的情況，管理團隊將依公平性與社群利益來判斷處理。</p>
+        <p>7.3 任何試圖規避規範的行為仍將受到懲處，管理團隊擁有最終決定權。</p>
+      </div>
     </div>
-    <script src="js/index.js"></script>
+  </section>
+
+  <section id="build">
+    <div class="container">
+        <div>
+            <h1>Minecraft 跑酷伺服器建築師規範</h1>
+            <h2>目錄</h2>
+            <ul>
+                <li><a href="#builder-general">1. 總則</a></li>
+                <li><a href="#builder-map">2. 地圖規範</a></li>
+                <li><a href="#builder-submission">3. 地圖提交與審核</a></li>
+                <li><a href="#builder-behavior">4. 建築師行為規範</a></li>
+                <li><a href="#builder-penalty">5. 違規處罰</a></li>
+                <li><a href="#builder-rank">6. 建築師晉升與降級</a></li>
+                <li><a href="#builder-final">7. 附則</a></li>
+            </ul>
+
+            <!-- 1. 總則 -->
+            <h2 id="builder-general">1. 總則</h2>
+            <p>1.1 本規範適用於所有擁有建築權限的玩家，包括正式建築師、實習建築師與特許玩家，確保伺服器地圖標準與公平性。</p>
+            <p>1.2 所有建築師需遵守此規範，並隨時關注更新。</p>
+
+            <h2 id="builder-map">2. 地圖規範</h2>
+            <p>2.1 每張地圖必須具備中英文名稱，用於讓玩家可識別及排行榜顯示使用。</p>
+            <p>2.2 地圖必須標示清楚的難度，包括簡單、普通、困難或極限等等難度，並符合伺服器的挑戰標準。</p>
+            <p>2.3 起點與終點必須使用烽火台，確保統一性與易辨識性。</p>
+            <p>2.4 所有地圖需經過測試，確保每個跳躍皆可通過，且無法利用漏洞跳關。</p>
+            <p>2.5 非段位形式的地圖應設計合理的檢查點，避免過度懲罰性設計，影響遊戲體驗。</p>
+            <p>2.6 應提供明確的視覺指引，例如地毯、燈光或標誌，避免玩家迷路。</p>
+
+            <h2 id="builder-submission">3. 地圖提交與審核</h2>
+            <p>3.1 地圖完成後，建築師需提交地圖名稱（中英文）、難度分類、起點與終點座標，以及特色與機關說明。</p>
+            <p>3.2 管理團隊將於 7 天內審核地圖，確保其符合規範並具備公平的挑戰性。</p>
+            <p>3.3 若地圖未通過審核，建築師需根據回饋進行修改，直至符合標準。</p>
+
+            <h2 id="builder-behavior">4. 建築師行為規範</h2>
+            <p>4.1 建築師不得擅自更改伺服器內建築，包括已上線的地圖、伺服器大廳或其他玩家的作品，所有變動須經過管理團隊批准。</p>
+            <p>4.2 禁止使用指令刪除已上線的地圖，所有地圖移除須經過管理團隊批准。</p>
+            <p>4.3 禁止使用指令執行可能導致伺服器崩潰或重啟的操作。</p>
+            <p>4.4 禁止濫用 WorldEdit 或其他工具，若有大範圍修改需求須先與管理團隊確認。</p>
+            <p>4.5 禁止利用權限進行惡意行為，例如強制傳送玩家、生成大量實體或影響遊戲體驗的操作。</p>
+            <p>4.6 地圖正式上線後，若發現 Bug 或難度不平衡，建築師應主動回報並協助修正。</p>
+
+            <h2 id="builder-penalty">5. 違規處罰</h2>
+            <p>5.1 擅自修改或刪除地圖將被警告，並撤回相關變更。再次違規者將被限制建築權限七天，累犯者將被移除建築師資格。</p>
+            <p>5.2 濫用指令導致伺服器問題將受到警告，如再次發生，將限制建築權限十四天，嚴重者將被永久移除資格。</p>
+            <p>5.3 利用權限進行惡意行為，如強制傳送玩家或干擾遊戲體驗，將直接限制建築權限七天，嚴重者將被封禁帳號。</p>
+            <p>5.4 若建築師的行為導致伺服器崩潰或停止運行，將立即撤銷建築權限，並根據情節嚴重性決定是否永久封禁帳號。</p>
+
+            <h2 id="builder-rank">6. 建築師晉升與降級</h2>
+            <p>6.1 實習建築師(建築師e)需提交至少三張合格地圖，並經審核通過，方可晉升正式建築師。</p>
+            <p>6.2 正式建築師需提交至少三張優秀地圖，且具備指導新建築師的能力，方可晉升高級建築師(建築師pro)。</p>
+            <p>6.3 若建築師超過一個月未貢獻地圖，管理團隊可視情況降級或撤銷其權限。</p>
+            <p>6.4 若建築師違規次數達三次以上，將被永久移除建築師資格。</p>
+
+            <h2 id="builder-final">7. 附則</h2>
+            <p>7.1 本規範自公告日起生效，所有建築師皆須遵守，若不同意規範內容，請勿申請建築師職位。</p>
+            <p>7.2 本規範最終解釋權歸伺服器管理團隊所有。</p>
+        </div>
+    </div>
+  </section> 
+
+    <!-- 頁尾 -->
+    <footer>
+      <div class="footer-container">
+        <p class="author">作者：巨米</p>
+        <div class="social-icons">
+          <a href="https://www.youtube.com/@Gimmy-" target="_blank">
+            <i class="icon-youtube">
+              <img src="https://www.svgrepo.com/show/13671/youtube.svg" alt="youtube" width="30px" height="30px">
+            </i>
+          </a>
+          <a href="https://discordapp.com/users/624759157139963926" target="_blank">
+            <i class="icon-discord">
+              <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a69f118df70ad7828d4_icon_clyde_blurple_RGB.svg" alt="discord" width="30px" height="30px">
+            </i>
+          </a>
+          <a href="https://www.instagram.com/junming4820/" target="_blank">
+            <i class="icon-instagram">
+              <img src="https://static.cdninstagram.com/rsrc.php/v3/yt/r/30PrGfR3xhB.png" alt="instagram" width="30px" height="30px">
+            </i>
+          </a>
+        </div>
+        <p class="copyright">Copyright &copy; 2023 版權所有，並保留所有權利。</p>
+        <p class="contact">聯繫方式：<a href="mailto:linj80912@gmail.com">linj80912@gmail.com</a></p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- 載入合併後的 index.js -->
+  <script src="js/index.js"></script>
+  <!-- 區塊切換：點選導覽連結時僅顯示對應的 section -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const navLinks = document.querySelectorAll("#sideNav ul li a,#rules-builder ul li a");
+      const sections = document.querySelectorAll("section");
+      navLinks.forEach(link => {
+        link.addEventListener("click", function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute("href").substring(1);
+          sections.forEach(section => {
+            section.classList.toggle("active", section.id === targetId);
+            window.scrollTo({ top: 0, behavior: "instant" });
+          });
+        });
+      });
+    });
+  </script>
 </body>
-
 </html>
