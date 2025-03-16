@@ -8,7 +8,7 @@ body {
     min-width: 620px;
 }
 
-#spec, #info , #build {
+#rule, #info , #builder-rule {
     margin-top: 80px; /* 讓內容不被導覽列遮擋 */
 }
 
