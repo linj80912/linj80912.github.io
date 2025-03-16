@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   showLoader();
-
+  setTimeout(hideLoader, 6000);
   const startTime = new Date().getTime();
 
   window.onload = function() {
