@@ -56,7 +56,7 @@
     <ul>
       <li><a href="#home" >首頁</a></li>
       <li><a href="#info">各區域介紹</a></li>
-      <li><a href="#spec">伺服器規範</a></li>
+      <li><a href="#rule">伺服器規範</a></li>
     </ul>
   </div>
 
@@ -131,7 +131,7 @@
     </section>
     
     <!-- 伺服器規範區塊 -->
-  <section id="spec">
+  <section id="rule">
     <div class="container">
       <div>
         <h1>Minecraft 跑酷伺服器規範</h1>
@@ -180,7 +180,7 @@
         <p>4.6 地圖正式上線後，若發現 Bug 或難度不平衡，建築師應主動修正。</p>
         <ul><li>
           <p>4.7 詳細建築師規範請查看</p>
-          <a href="#build">點此前往</a>
+          <a href="#builder-rule">點此前往</a>
         </li></ul></div>
 
 
@@ -205,7 +205,7 @@
     </div>
   </section>
 
-  <section id="build">
+  <section id="#builder-rule">
     <div class="container">
         <div>
             <h1>Minecraft 跑酷伺服器建築師規範</h1>
@@ -299,19 +299,44 @@
   <!-- 區塊切換：點選導覽連結時僅顯示對應的 section -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      const navLinks = document.querySelectorAll("#sideNav ul li a,#rules-builder ul li a");
-      const sections = document.querySelectorAll("section");
-      navLinks.forEach(link => {
-        link.addEventListener("click", function(e) {
-          e.preventDefault();
-          const targetId = this.getAttribute("href").substring(1);
-          sections.forEach(section => {
-            section.classList.toggle("active", section.id === targetId);
-            window.scrollTo({ top: 0, behavior: "instant" });
-          });
-        });
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("#sideNav a, #rules-builder ul li a");
+  
+    function showSectionFromHash() {
+      const hash = window.location.hash.substring(1);
+      let sectionFound = false;
+  
+      sections.forEach(section => {
+        if (section.id === hash) {
+          section.classList.add("active");
+          sectionFound = true;
+        } else {
+          section.classList.remove("active");
+        }
+      });
+  
+      // 若網址沒有對應的 section，則預設回到首頁
+      if (!sectionFound) {
+        document.querySelector("#home").classList.add("active");
+      }
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }
+  
+    // 初次加載時根據網址 hash 顯示對應 section
+    showSectionFromHash();
+  
+    // 監聽導覽列點擊事件
+    navLinks.forEach(link => {
+      link.addEventListener("click", function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute("href").substring(1);
+        window.location.hash = targetId;
+        showSectionFromHash();
       });
     });
+  
+    window.addEventListener("hashchange", showSectionFromHash);
+  });
   </script>
 </body>
 </html>
