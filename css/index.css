@@ -574,14 +574,17 @@ footer {
         height: 90px;
     }
 
-    .logo {
-        line-height: 90px;
+    .navbar .logo {
+        font-size: 30px;
         padding: 0 20px;
     }
 
-    .logo a {
-        font-size: 50px;
-        padding: 0 0px;
+    .logo a:hover {
+        text-decoration: none;
+        color: #fff;
+        font-size: 36px;
+        font-weight: bold;
+        padding: 0 5px;
     }
 
     .checkbtn {
