@@ -4,8 +4,16 @@
     box-sizing: border-box;
 }
 
+/* 預設情況下不設定 min-width，讓手機正常縮放 */
 body {
+  width: 100%;
+}
+
+/* 在大於 620px 時才套用 min-width 保護版型 */
+@media (min-width: 620px) {
+  body {
     min-width: 620px;
+  }
 }
 
 #rule, #info , #builder-rule {
