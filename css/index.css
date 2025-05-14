@@ -570,6 +570,18 @@ footer {
         right: 10vw;
     }
     
+    .navbar .logo {
+        font-size: 30px;
+        padding: 0 20px;
+    }
+
+    .logo a:hover {
+        text-decoration: none;
+        color: #fff;
+        font-size: 36px;
+        font-weight: bold;
+        padding: 0 5px;
+    }
 
     .navbar ul {
         opacity: 0;
